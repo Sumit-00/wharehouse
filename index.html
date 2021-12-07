@@ -781,24 +781,12 @@
           "<br>Currently Monthly Shipments: " +
           selectedOption;
 
-        console.log(
-          name +
-            " " +
-            email +
-            " " +
-            phone +
-            " " +
-            comapnyName +
-            " " +
-            companyWebsite +
-            " "
-        );
         Email.send({
           Host: "smtp.gmail.com",
           Username: "business@wharehouse.in",
           Password: "Shipyaari@2021",
           To: "business@wharehouse.in",
-          From: "sumitsaini589@gmail.com",
+          From: email,
           Subject: "Your website Request Quote Mail",
           Body: Body,
         }).then((message) => {
