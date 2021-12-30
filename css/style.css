@@ -321,13 +321,14 @@ ul.list-1 li::before {
   padding: 20px 40px;
 }
 .scroll-fix {
-  height: 270px;
+  height: 415px;
 }
 .drdrdrd form.f1 {
   margin-bottom: 40px;
 }
 .drdrdrd form.f1 .form-group {
   width: 33%;
+  margin: 5px 0;
 }
 .drdrdrd form.f1 .form-group input {
   width: 95%;
@@ -488,6 +489,43 @@ footer p {
   color: #fff;
   margin-top: 12px;
   font-size: 15px;
+}
+
+/* Request Quote */
+
+#Location {
+  width: 95%;
+  box-shadow: none;
+  border: 2px solid #cecece;
+  border-radius: 10px;
+  color: #555;
+  color: #a6a6a6;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.area-required-class {
+  display: inline-block;
+  margin-left: 1rem;
+}
+#area-required {
+  width: 20%;
+}
+
+.fulfillment-required,
+.transportation-required {
+  display: inline-block;
+}
+.fulfillment-required,
+.transportation-required {
+  width: 34%;
+}
+#fulfillment,
+#transportation {
+  width: 34%;
+}
+.any-other-details {
+  margin-top: 2rem;
 }
 
 /*=========Media Queries=========*/
@@ -657,7 +695,7 @@ footer p {
     left: 0;
   }
   .scroll-fix {
-    height: 726px;
+    height: 990px;
   }
   .drdrdrd form.f2 .f2c select {
     width: 96%;
@@ -690,5 +728,20 @@ footer p {
   }
   .mob-heigh-fix {
     height: 350px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .fulfillment-required,
+  .transportation-required {
+    display: block;
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+  .area-required-class {
+    margin-left: 0px;
+  }
+  #anyOtherDetails {
+    width: 100%;
   }
 }

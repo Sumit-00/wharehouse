@@ -443,6 +443,52 @@
                       />
                     </div>
 
+                    <div class="form-group">
+                      <select
+                        name="Location"
+                        id="Location"
+                        class="form-control"
+                      >
+                        <option value="" disabled selected>
+                          Select your Location
+                        </option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Bangalore">Bangalore</option>
+                      </select>
+                    </div>
+
+                    <div class="area-required-class">
+                      <label>Area Required: </label>
+                      <span>500 x</span>
+                      <input
+                        type="number"
+                        id="area-required"
+                        name="quantity"
+                        value="1"
+                        min="1"
+                      />
+                      <span class="area-required-result">= 500 sq.ft</span>
+                    </div>
+
+                    <div class="fulfillment-required">
+                      <label>Fullfillment Required : </label>
+                      <select name="fulfillment" id="fulfillment">
+                        <option value="" disabled selected>Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
+
+                    <div class="transportation-required">
+                      <label>Transportation Required : </label>
+                      <select name="transportation" id="transportation">
+                        <option value="" disabled selected>Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
+
                     <h4>Company Data</h4>
                     <div class="form-group f2a">
                       <input
@@ -460,20 +506,16 @@
                         id="companyWebsite"
                       />
                     </div>
-                    <div
-                      class="form-group f2c"
-                      style="display: block; width: 100%"
-                    >
+                    <div class="form-group f2c" style="display: inline-block">
                       <select
                         id="select-options"
                         placeholder="Current Monthly Shipments*"
                         style="
-                          width: 98%;
-                          padding: 15px;
+                          width: auto;
+                          padding: 11px 10px;
                           box-shadow: none;
                           border: 2px solid #cecece;
                           border-radius: 10px;
-                          margin-top: 20px;
                           color: #969696;
                         "
                       >
@@ -483,12 +525,20 @@
                         <option value="">400</option>
                       </select>
                     </div>
+                    <div class="any-other-details">
+                      <label for="anyOtherDetails">Any Other Details : </label>
+                      <textarea id="anyOtherDetails" rows="4" cols="50">
+                      </textarea>
+                    </div>
                     <div>
                       <button class="submit-btn">Request A Quote</button>
                     </div>
                   </form>
                   <div>
-                    <p class="last-text-of-form custom-text" style="text-align: center;"></p>
+                    <p
+                      class="last-text-of-form custom-text"
+                      style="text-align: center"
+                    ></p>
                   </div>
                 </div>
                 <div class="col-md-3">
@@ -749,11 +799,19 @@
         ],
       });
     </script>
+
     <script>
       document
         .querySelector(".submit-form")
         .addEventListener("submit", submitform);
       const customMsg = document.querySelector(".custom-text");
+
+      document
+        .getElementById("area-required")
+        .addEventListener("change", (e) => {
+          document.querySelector(".area-required-result").innerText =
+            "    =  " + e.target.value * 500 + "sq.ft";
+        });
 
       var Body;
 
@@ -766,6 +824,24 @@
         let companyWebsite = document.getElementById("companyWebsite").value;
         let v = document.getElementById("select-options");
         let selectedOption = v.options[v.selectedIndex].text;
+        let location = document.getElementById("Location");
+        let selectedLocation = location.options[location.selectedIndex].text;
+        const areaRequired = document.getElementById("area-required").value;
+
+        const finalArea = 500 * areaRequired + "sq.ft";
+
+        const fulFillment =
+          document.getElementById("fulfillment").options[
+            document.getElementById("fulfillment").selectedIndex
+          ].text;
+
+        const transportation =
+          document.getElementById("fulfillment").options[
+            document.getElementById("fulfillment").selectedIndex
+          ].text;
+
+        const anyOtherDetails =
+          document.getElementById("anyOtherDetails").value;
 
         Body =
           "Name: " +
@@ -776,10 +852,20 @@
           phone +
           "<br>Company Name: " +
           comapnyName +
+          "<br>Location: " +
+          selectedLocation +
+          "<br>Area Required: " +
+          finalArea +
+          "<br>Fulfillment Required: " +
+          fulFillment +
+          "<br>Transportation Required: " +
+          transportation +
           "<br>Company Website: " +
           companyWebsite +
           "<br>Currently Monthly Shipments: " +
-          selectedOption;
+          selectedOption +
+          "<br>Any Other Details: " +
+          anyOtherDetails;
 
         Email.send({
           Host: "smtp.gmail.com",
