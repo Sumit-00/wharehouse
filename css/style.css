@@ -510,6 +510,10 @@ footer p {
 }
 #area-required {
   width: 20%;
+  box-shadow: none;
+  border: 2px solid #cecece;
+  border-radius: 10px;
+  padding: 1px 9px;
 }
 
 .fulfillment-required,
@@ -520,12 +524,34 @@ footer p {
 .transportation-required {
   width: 34%;
 }
+
 #fulfillment,
 #transportation {
+  box-shadow: none;
+  border: 2px solid #cecece;
+  border-radius: 10px;
+  padding: 1px 9px;
   width: 34%;
+}
+#shipment {
+  display: inline-block;
+  box-shadow: none;
+  border: 2px solid #cecece;
+  border-radius: 10px;
+  padding: 8px 9px;
+  margin-left: 1rem;
+}
+.shipment-wrapper {
+  margin-top: 2rem;
 }
 .any-other-details {
   margin-top: 2rem;
+}
+.cfc {
+  width: 49% !important;
+}
+.cwc {
+  width: 49% !important;
 }
 
 /*=========Media Queries=========*/
@@ -741,7 +767,17 @@ footer p {
   .area-required-class {
     margin-left: 0px;
   }
-  #anyOtherDetails {
-    width: 100%;
+  #anyOtherDetails,
+  .cfc,
+  .cwc {
+    width: 100% !important;
+  }
+
+  .shipment-wrapper {
+    display: flex;
+    width: 95%;
+  }
+  #shipment {
+    width: 67%;
   }
 }

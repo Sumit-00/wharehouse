@@ -490,7 +490,7 @@
                     </div>
 
                     <h4>Company Data</h4>
-                    <div class="form-group f2a">
+                    <div class="form-group f2a cfc">
                       <input
                         type="text"
                         class="form-control"
@@ -498,7 +498,7 @@
                         id="companyName"
                       />
                     </div>
-                    <div class="form-group f2b">
+                    <div class="form-group f2b cwc">
                       <input
                         type="text"
                         class="form-control"
@@ -506,24 +506,18 @@
                         id="companyWebsite"
                       />
                     </div>
-                    <div class="form-group f2c" style="display: inline-block">
-                      <select
-                        id="select-options"
-                        placeholder="Current Monthly Shipments*"
-                        style="
-                          width: auto;
-                          padding: 11px 10px;
-                          box-shadow: none;
-                          border: 2px solid #cecece;
-                          border-radius: 10px;
-                          color: #969696;
-                        "
+                    <div class="shipment-wrapper" style="display: block">
+                      <label for="shipment"
+                        >Currently Monthly Shipments :</label
                       >
-                        <option value="">Current Monthly Shipments*</option>
-                        <option value="">100</option>
-                        <option value="">200</option>
-                        <option value="">400</option>
-                      </select>
+                      <input
+                        type="number"
+                        id="shipment"
+                        name="quantity"
+                        value="100"
+                        min="100"
+                        step="100"
+                      />
                     </div>
                     <div class="any-other-details">
                       <label for="anyOtherDetails">Any Other Details : </label>
